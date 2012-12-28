@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name: Permissions2Categories
+	Plugin Name: Permissions2Categories
 	Plugin URI: 
 	Plugin Description: Allows permissions to be set for categories.
 	Plugin Version: 1.0.

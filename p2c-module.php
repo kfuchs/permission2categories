@@ -24,8 +24,10 @@ class p2c_category_permission
 	 */
 	function init_page() 
 	{
-		if ( qa_clicked('dosavecategory') && qa_post_text('p2c_permit_level') && !qa_clicked('docancel') )
+		$permit_level = qa_post_text('p2c_permit_level');
+		if ( qa_clicked('dosavecategory') && isset($permit_level) && !qa_clicked('docancel') ){
 			$this->edit_permit_level(qa_post_text('edit'), $this->category_metakey, qa_post_text('p2c_permit_level'));
+		}
 	}
 	
 	
@@ -89,7 +91,8 @@ class p2c_category_permission
 	 */
 	function has_permit($categoryid) 
 	{
-		if ( qa_get_logged_in_level() >= $this->category_permit_level($categoryid) )
+		$permit_level = $this->category_permit_level($categoryid);
+		if ( qa_get_logged_in_level() >= $permit_level || $permit_level == 0 )
 			return true;
 		else
 			return false;

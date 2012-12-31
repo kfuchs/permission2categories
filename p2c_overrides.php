@@ -1,17 +1,16 @@
 <?php
-function qa_admin_sub_navigation()
-{
-	$navigation = qa_admin_sub_navigation_base();
-	//print_r($navigation);
-	
-	return $navigation;
-}
 
-
+/**
+ * This is an override of the core function 'qa_page_q_post_rules'.
+ * Adds another permissions check to see if the user has the right permit level for the category the question is in. 
+ * If not the question will be blocked.
+ * 
+ * @see qa_page_q_post_rules() in core files
+ */
 function qa_page_q_post_rules($post, $parentpost=null, $siblingposts=null, $childposts=null)
 {
 	//setup vars and initiate p2c class
-	$p2c = new p2c_category_permission;
+	$p2c = qa_load_module('process', 'Permissions2Categories');
 	$categoryid = $post['categoryid'];
 	
 	// run the original function and get all the info

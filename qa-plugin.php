@@ -22,7 +22,6 @@
 	qa_register_plugin_overrides('p2c_overrides.php');
 	qa_register_plugin_layer('p2c_layer.php', 'Permissions 2 Categories Layer');
 	qa_register_plugin_module('process', 'p2c-module.php', 'p2c_category_permission', 'Permissions2Categories');
-	qa_register_plugin_module('page', 'p2c-page.php', 'p2c_page', 'Permissions 2 Categories Page');
 	
 
 /*

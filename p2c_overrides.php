@@ -14,7 +14,7 @@ function qa_page_q_post_rules($post, $parentpost=null, $siblingposts=null, $chil
 	$categoryid = $post['categoryid'];
 	
 	// run the original function and get all the info
-	$rules=qa_page_q_post_rules_base($post, $parentpost=null, $siblingposts=null, $childposts=null);
+	$rules=qa_page_q_post_rules_base($post, $parentpost, $siblingposts, $childposts);
 	
 	//check to see if user has permission to view the category, if not, then hide the question
 	if (!$p2c->has_permit($categoryid))
